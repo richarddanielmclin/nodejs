@@ -1,14 +1,5 @@
-import path from 'path';
-import fs from 'fs';
-import request from 'request';
+const fs = require("fs");
 
-const path = require('path');
-const fs = require('fs');
-const request = require('request');
-
-const chirpPath = path.join(__dirname, '../chirps.json')
-
-console.log(path.join(__dirname, 'chirps.json'))
 
 const chirps = [
     {
@@ -33,7 +24,6 @@ const chirps = [
     }
 ]
 
-fs.writeFile(chirpPath, JSON.stringify(chirps), (err) => {
-    if (err) {return console.error(err);}
-    console.log(chirps);
+fs.writeFile('chirps.json', JSON.stringify(chirps), (err) => {
+    if (err) throw err;
 })
